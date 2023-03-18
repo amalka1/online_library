@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "neMhj7Ttndjkebqr1FH5k91qXZlydPG9PuAjElbxDFM=",
+  "Hash": "ViCCsEzZ77Dxcxf7kPsm7NWiuJo5iPoPgsfkCgYa01A=",
   "Source": "Online_Library",
   "BasePath": "_content/Online_Library",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Online_Library.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\BookImages\\208fc427-60d3-42ad-8e3c-426ca83829c2.jpg",
+      "SourceId": "Online_Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\",
+      "BasePath": "_content/Online_Library",
+      "RelativePath": "BookImages/208fc427-60d3-42ad-8e3c-426ca83829c2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\BookImages\\208fc427-60d3-42ad-8e3c-426ca83829c2.jpg"
     },
     {
       "Identity": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\BookImages\\90a1bc58-a5e4-4c82-a756-4992599d3353.jpg",

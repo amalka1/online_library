@@ -112,33 +112,19 @@ public class HomeController : Controller
 
         int idINT = Int32.Parse(idPost);
         int loggeduser = (int)HttpContext.Session.GetInt32("userId");
-        // Console.WriteLine("we are at /likeBook/{userid}/{bookid}");
-        // ViewBag.listlikedbook = _context.Likes.Include(e => e.user).Where(e => e.bookId == bookid).ToList();
-        //ViewBag.likedbook = ViewBag.listlikedbook.Count();
-        // Console.WriteLine("This is the online library" + ViewBag.likedbook + " book id is equal to " + bookid);
         Like? liku1 = _context.Likes.FirstOrDefault(e => e.bookId == idINT && e.userId == loggeduser);
-        if (liku1 == null)
-        {
+       
+
             Like liku = new Like();
             liku.bookId = idINT;
             liku.userId = loggeduser;
-            _context.Books.Include(e => e.booklikes);
+             _context.Books.Include(e => e.booklikes);
             _context.Likes.Add(liku);
             _context.SaveChanges();
             int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
 
             return Json(nrLikeve);
-        }else
-        {
-            Like? liku = _context.Likes.First(e => e.bookId == idINT && e.userId == loggeduser);
-
-            // _context.Books.Include(e => e.booklikes);
-            _context.Likes.Remove(liku);
-            _context.SaveChanges();
-            int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
-
-        return Json(nrLikeve);
-        }
+       
         // return RedirectToAction("Dashboard", new { bookid = bookid });
     }
     [HttpPost("/unlikeBook/Api")]
@@ -157,8 +143,8 @@ public class HomeController : Controller
 
         int loggeduser = (int)HttpContext.Session.GetInt32("userId");
         Like? liku = _context.Likes.First(e => e.bookId == idINT && e.userId == loggeduser);
-
-        // _context.Books.Include(e => e.booklikes);
+       
+         _context.Books.Include(e => e.booklikes);
         _context.Likes.Remove(liku);
         _context.SaveChanges();
         int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
@@ -268,7 +254,12 @@ public class HomeController : Controller
         //this is the id of logged user
         ViewBag.id = (int)HttpContext.Session.GetInt32("userId");
         var like = _context.Books.Include(e => e.booklikes).Where(e => e.booklikes.Any(f => f.userId == (int)HttpContext.Session.GetInt32("userId") == true));
-        ViewBag.likeBook = _context.Books.Include(e => e.booklikes).Where(e => e.booklikes.Any(f => f.userId == (int)HttpContext.Session.GetInt32("userId") == true));
+        ViewBag.likeBook = _context.Likes.Where(e => e.userId ==(int)HttpContext.Session.GetInt32("userId"));
+        foreach (var item in ViewBag.likeBook)
+        {
+            Console.WriteLine(item.bookId);  
+            Console.WriteLine((int)HttpContext.Session.GetInt32("userId"));  
+        }
         //this takes all the comments 
         ViewBag.allcomments = _context.Comments.Include(e => e.user).ToList();
         //this takes all the reviews 
