@@ -59,6 +59,10 @@ input::-webkit-outer-spin-button,
   color: red;
   text-align: center;
 }
+.no-border{
+  border: none;
+  background-color: #cccccc;
+}
 
 
 

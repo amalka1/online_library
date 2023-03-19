@@ -62,29 +62,24 @@
                 </div>
                 <div class="d-flex mb-2 pl-2 justify-content-around bgcolor text-white">
                   <div class="d-flex text-center ">
-
-                 
-                @{string nameTest = "";
-          
-                 @foreach (var item2 in @ViewBag.likeBook)
-                 {
-                  @if (item.bookId == item2.bookId) 
+                    @{
+                        Like? filteredBook = ((List<Like>)ViewBag.likeBook).FirstOrDefault(b => b.userId == ViewBag.id && b.bookId == item.bookId);                        
+                  if (filteredBook == null) 
                   {
-                  nameTest = "Unlike";
+                  <button class=" d-inline no-border" id="test1" type="button" value="@item.bookId" onclick="test2(this)">Like</button>
                      }
                   else
                   {
-                     nameTest = "Like";
+                 <button class=" d-inline no-border" id="test1" type="button" value="@item.bookId" onclick="test2(this)">Unlike</button>
                     
                   }
-                
-                 }}
-                 <button class=" d-inline btn btn-outline-dark mt-auto" id="test1" type="button" value="@item.bookId" onclick="test2(this)">@nameTest</button>
+                }
+                 
 
-                  <p><span id="@item.bookId">@item.booklikes.Count</span>Like</p>
+                  <p style="color: black; margin-top: 15px"><span id="@item.bookId">@item.booklikes.Count</span></p>
                  
                   </div>
-                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#hello1_@item.bookId">
+                    <button type="button" class="d-inline no-border" data-bs-toggle="modal" data-bs-target="#hello1_@item.bookId">
                     Comment
                     </button>
                     <!-- Modal for Book details -->
