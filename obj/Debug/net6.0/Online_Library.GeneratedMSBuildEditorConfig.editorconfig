@@ -8,69 +8,69 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Online_Library
 build_property.RootNamespace = Online_Library
-build_property.ProjectDir = C:\Users\amari\OneDrive\Desktop\OnlineLibrary\Online_Library\
+build_property.ProjectDir = c:\Users\amari\OneDrive\Desktop\OnlineLibrary\Online_Library\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\amari\OneDrive\Desktop\OnlineLibrary\Online_Library
+build_property.MSBuildProjectDirectory = c:\Users\amari\OneDrive\Desktop\OnlineLibrary\Online_Library
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/about.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/about.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/addbook.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/addbook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZGRib29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/bookdetails.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/bookdetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxib29rZGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/category.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/category.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjYXRlZ29yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Dashboard.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/edit.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxlZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Login.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Privacy.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Register.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/yourspace.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Home/yourspace.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx5b3Vyc3BhY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/Error.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/_ViewImports.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/_ViewStart.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/_Layout.cshtml]
+[c:/Users/amari/OneDrive/Desktop/OnlineLibrary/Online_Library/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-djogyzy2k4

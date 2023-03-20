@@ -64,24 +64,25 @@
                     enctype="multipart/form-data">
 
                     <div class="form-outline mb-4">
+                      <label class="form-label" asp-for="bookTitle"></label>
                       <input asp-for="bookTitle" class="form-control
                         form-control-lg" />
-                      <label class="form-label" asp-for="bookTitle"></label>
                       <span asp-validation-for="bookTitle"></span>
                     </div>
                     <div class="form-outline mb-4">
+                      <label class="form-label" asp-for="bookAuthor"></label>
                       <input asp-for="bookAuthor" id="form3Example3cg"
                         class="form-control form-control-lg" />
-                      <label class="form-label" asp-for="bookAuthor"></label>
                       <span asp-validation-for="bookAuthor"></span>
                     </div>
                     <div class="form-outline mb-4">
+                      <label class="form-label" asp-for="bookDescription"></label>
                       <input asp-for="bookDescription" id="form3Example3cg"
                         class="form-control form-control-lg" />
-                      <label class="form-label" asp-for="bookDescription"></label>
                       <span asp-validation-for="bookDescription"></span>
                     </div>
                     <div class="form-outline mb-4">
+                      <label class="form-label" asp-for="bookCategory"></label>
                       <select asp-for="bookCategory" id="form3Example3cg"
                         class="form-control form-control-lg">
                         @foreach (var category in ViewBag.allCategorys)
@@ -89,13 +90,12 @@
                           <option value="@category.categoryName">@category.categoryName</option>
                         }
                       </select>
-                      <label class="form-label" asp-for="bookCategory"></label>
                       <span asp-validation-for="bookCategory"></span>
                     </div>
                     <div class="form-outline mb-4">
+                      <label class="form-label" asp-for="file"></label>
                       <input type="file" asp-for="file" id="form3Example3cg"
                         class="form-control form-control-lg" />
-                      <label class="form-label" asp-for="file"></label>
                       <span asp-validation-for="file"></span>
                     </div>
                     <div class="d-flex justify-content-center">

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ViCCsEzZ77Dxcxf7kPsm7NWiuJo5iPoPgsfkCgYa01A=",
+  "Hash": "fcRSAVEeffGAjVVHnCtfoKlwx9SADN+stN8JVpVlECI=",
   "Source": "Online_Library",
   "BasePath": "_content/Online_Library",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\BookImages\\f4634932-3b01-446a-99f4-484cd774e99e.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\BookImages\\f5aa5ed2-67d3-4703-ba13-2219fea36336.jpeg",
+      "SourceId": "Online_Library",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\",
+      "BasePath": "_content/Online_Library",
+      "RelativePath": "BookImages/f5aa5ed2-67d3-4703-ba13-2219fea36336.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\BookImages\\f5aa5ed2-67d3-4703-ba13-2219fea36336.jpeg"
     },
     {
       "Identity": "C:\\Users\\amari\\OneDrive\\Desktop\\OnlineLibrary\\Online_Library\\wwwroot\\BookImages\\fafca46e-186e-4fd6-b8d3-15f6373d7a25.jpg",

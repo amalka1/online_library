@@ -42,25 +42,7 @@ public class HomeController : Controller
         ViewBag.allbooks = _context.Books.Include(e => e.bookCreator).ToList();
         return RedirectToAction("Dashboard");
     }
-    [HttpPost("/File/Upload")]
-    public ActionResult Upload(IEnumerable<IFormFile> files)
-    {
-        foreach (var file in files)
-        {
-            if (file != null && file.Length > 0)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(_webHostEnvironment.WebRootPath, ("~/Images/"), fileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-            }
-        }
-
-        return RedirectToAction("Dashboard");
-    }
-
+    
     [HttpPost("/addComment/{bookid}")]
     public IActionResult addComment(Comment comment, int bookid)
     {
@@ -71,6 +53,7 @@ public class HomeController : Controller
         _context.SaveChanges();
         return RedirectToAction("Dashboard");
     }
+    
     [HttpPost("/addReview/{bookid}")]
     public IActionResult addReview(Review review, int bookid)
     {
@@ -82,67 +65,40 @@ public class HomeController : Controller
             review.bookId = bookid;
             _context.Reviews.Add(review);
             _context.SaveChanges();
-            //  return RedirectToAction ("Dashboard");
         }
         return RedirectToAction("Dashboard");
     }
-    [HttpGet("/likeBook/{userid}/{bookid}")]
-    public IActionResult likeBook(int userid, int bookid)
-    {
-        Console.WriteLine("we are at /likeBook/{userid}/{bookid}");
-        ViewBag.listlikedbook = _context.Likes.Include(e => e.user).Where(e => e.bookId == bookid).ToList();
-        //ViewBag.likedbook = ViewBag.listlikedbook.Count();
-        Console.WriteLine("This is the online library" + ViewBag.likedbook + " book id is equal to " + bookid);
-        Like? liku1 = _context.Likes.FirstOrDefault(e => e.bookId == bookid && e.userId == userid);
-        if (liku1 == null)
-        {
-            Like liku = new Like();
-            liku.bookId = bookid;
-            liku.userId = userid;
-            _context.Books.Include(e => e.booklikes);
-            _context.Likes.Add(liku);
-            _context.SaveChanges();
-            return RedirectToAction("Dashboard", new { bookid = bookid });
-        }
-        return RedirectToAction("Dashboard", new { bookid = bookid });
-    }
+    
     [HttpPost("/likeBook/Api")]
     public IActionResult likeBookApi([FromBody] string idPost)
     {
-
         int idINT = Int32.Parse(idPost);
         int loggeduser = (int)HttpContext.Session.GetInt32("userId");
         Like? liku1 = _context.Likes.FirstOrDefault(e => e.bookId == idINT && e.userId == loggeduser);
-       
-
-            Like liku = new Like();
-            liku.bookId = idINT;
-            liku.userId = loggeduser;
-             _context.Books.Include(e => e.booklikes);
-            _context.Likes.Add(liku);
-            _context.SaveChanges();
-            int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
-
-            return Json(nrLikeve);
-       
-        // return RedirectToAction("Dashboard", new { bookid = bookid });
-    }
-    [HttpPost("/unlikeBook/Api")]
-    public IActionResult unlikeBookApi([FromBody] string idPost)
-    {
-
-        int idINT = Int32.Parse(idPost);
-        int loggeduser = (int)HttpContext.Session.GetInt32("userId");
-        Like? liku = _context.Likes.First(e => e.bookId == idINT && e.userId == loggeduser);       
-         _context.Books.Include(e => e.booklikes);
-        _context.Likes.Remove(liku);
+        Like liku = new Like();
+        liku.bookId = idINT;
+        liku.userId = loggeduser;
+        _context.Books.Include(e => e.booklikes);
+        _context.Likes.Add(liku);
         _context.SaveChanges();
         int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
 
         return Json(nrLikeve);
-        // }
-        // return RedirectToAction("Dashboard", new { bookid = bookid });
     }
+    
+    [HttpPost("/unlikeBook/Api")]
+    public IActionResult unlikeBookApi([FromBody] string idPost)
+    {
+        int idINT = Int32.Parse(idPost);
+        int loggeduser = (int)HttpContext.Session.GetInt32("userId");
+        Like? liku = _context.Likes.First(e => e.bookId == idINT && e.userId == loggeduser);
+        _context.Books.Include(e => e.booklikes);
+        _context.Likes.Remove(liku);
+        _context.SaveChanges();
+        int nrLikeve = _context.Likes.Where(e => e.bookId == idINT).Count();
+        return Json(nrLikeve);
+    }
+    
     [HttpGet("/Delete/{id}")]
     public IActionResult delete(int id)
     {
@@ -154,6 +110,7 @@ public class HomeController : Controller
         _context.SaveChanges();
         return RedirectToAction("yourspace");
     }
+    
     [HttpGet("/edit/{id}")]
     public IActionResult edit(int id)
     {
@@ -161,6 +118,7 @@ public class HomeController : Controller
         Book book = _context.Books.Find(id);
         return View(book);
     }
+    
     [HttpGet("category/{id}")]
     public IActionResult category(int id)
     {
@@ -178,14 +136,14 @@ public class HomeController : Controller
         Category cat = _context.Categorys.First(e => e.categoryId == 1);
         return View();
     }
+    
     [HttpPost("/edit/{id}")]
     public async Task<IActionResult> edit(Book bookfromview, int id)
     {
-        Console.WriteLine("We are at edit.");
         if (ModelState.IsValid)
         {
             Console.WriteLine("ModelState is valid ");
-            //This lines of code manage to delete the cover associated with the book that we are updating.
+            //This lines of code manage to delete the existing cover associated with the book that we are updating.
             Book bookindb = _context.Books.First(e => e.bookId == id);
             var path = Path.Combine(_webHostEnvironment.WebRootPath, "BookImages", bookindb.ImagePath);
             FileInfo file = new FileInfo(path);
@@ -209,8 +167,8 @@ public class HomeController : Controller
                 }
                 bookfromview.ImagePath = uniqueFileName;
                 Console.WriteLine("This is the imagepath " + bookfromview.ImagePath);
-
             }
+            //updating the book with details taken form the form.
             bookindb.ImagePath = bookfromview.ImagePath;
             bookindb.bookAuthor = bookfromview.bookAuthor;
             bookindb.bookTitle = bookfromview.bookTitle;
@@ -221,53 +179,33 @@ public class HomeController : Controller
         }
         return RedirectToAction("yourspace");
     }
-    [HttpGet("bookdetails")]
-    public IActionResult bookdetails()
-    {
-        return View();
-    }
+    
     [HttpGet("logout")]
     public IActionResult Logout()
     {
         HttpContext.Session.Clear();
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");
     }
+    
     [HttpGet("Dashboard")]
     public IActionResult Dashboard()
     {
-        //this takes all like including their users
+        //this takes all likes including their users
         ViewBag.listlikedbook = _context.Likes.Include(e => e.user).ToList();
-        Console.WriteLine("we are at /Dashboard");
-        Console.WriteLine("This is The like database with its elements " + ViewBag.listlikedbook.Count);
         //this takes all books including users
         ViewBag.allbooks = _context.Books.Include(e => e.bookCreator).Include(e => e.booklikes).ToList();
         //this is the id of logged user
         ViewBag.id = (int)HttpContext.Session.GetInt32("userId");
         var like = _context.Books.Include(e => e.booklikes).Where(e => e.booklikes.Any(f => f.userId == (int)HttpContext.Session.GetInt32("userId") == true));
         ViewBag.likeBook = _context.Likes.ToList();
-        foreach (var item in ViewBag.likeBook)
-        {
-            Console.WriteLine(item.bookId);  
-            Console.WriteLine((int)HttpContext.Session.GetInt32("userId"));  
-        }
         //this takes all the comments 
         ViewBag.allcomments = _context.Comments.Include(e => e.user).ToList();
         //this takes all the reviews 
         ViewBag.allreviews = _context.Reviews.ToList();
+        //This takes all the books including their likes also, is used to count the number of likes a book has.
         ViewBag.likesinbook = _context.Books.Include(e => e.booklikes).ToList();
         Category cat = _context.Categorys.First(e => e.categoryId == 1);
-        Console.WriteLine(cat.categoryName);
         return View();
-    }
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
     [HttpGet("Login")]
@@ -287,16 +225,12 @@ public class HomeController : Controller
                 ModelState.AddModelError("password", "Invalid UserName/Password");
                 return View("Login");
             }
-
             var hasher = new PasswordHasher<LoginUser>();
-
             var result = hasher.VerifyHashedPassword(userSubmission, userInDb.password, userSubmission.password);
-
             if (result == 0)
             {
                 ModelState.AddModelError("password", "Invalid Password");
                 return View("Login");
-
             }
             HttpContext.Session.SetInt32("userId", userInDb.userId);
             Console.WriteLine("useri" + userInDb.firstName);
@@ -308,19 +242,15 @@ public class HomeController : Controller
 
     [HttpGet("Register")]
     public IActionResult Register()
+
     {
-
-
         if (HttpContext.Session.GetInt32("userId") == null)
         {
 
             return View();
         }
-
         return RedirectToAction("Dashboard");
-
     }
-
 
     [HttpPost("Register")]
     public IActionResult Register(User user)
@@ -349,10 +279,8 @@ public class HomeController : Controller
         return View();
     }
 
-
     [HttpGet("addbook")]
     public IActionResult addbook()
-
     {
         ViewBag.allCategorys = _context.Categorys.ToList();
         return View();
@@ -361,7 +289,6 @@ public class HomeController : Controller
     [HttpPost("addbook")]
     public async Task<IActionResult> addbook(Book model)
     {
-
         if (ModelState.IsValid)
         {
             if (model.file != null && model.file.Length > 0)
@@ -370,7 +297,6 @@ public class HomeController : Controller
                 var fileExtension = Path.GetExtension(fileName);
                 string uniqueFileName = Guid.NewGuid().ToString() + fileExtension;
                 var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "BookImages", uniqueFileName);
-
                 // Save the image file to the specified path
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
@@ -378,7 +304,6 @@ public class HomeController : Controller
                 }
                 model.ImagePath = uniqueFileName;
                 Console.WriteLine("This is the imagepath " + model.ImagePath);
-
             }
             var categoryselected = _context.Categorys.First(e => e.categoryName == model.bookCategory);
             int IDuser = (int)HttpContext.Session.GetInt32("userId");
@@ -388,18 +313,8 @@ public class HomeController : Controller
             Console.WriteLine(model.ImagePath);
             _context.Books.Add(model);
             _context.SaveChanges();
-
             return RedirectToAction("yourspace");
         }
-
-        foreach (var modelState in ModelState.Values)
-        {
-            foreach (var error in modelState.Errors)
-            {
-                Console.WriteLine($"Error: {error.ErrorMessage}");
-            }
-        }
-        Console.WriteLine("The model does not have a valid state ");
         return View(model);
     }
 
@@ -411,7 +326,15 @@ public class HomeController : Controller
         ViewBag.User_name = useriLoguar.firstName;
         ViewBag.userbooks = _context.Books.Where(e => e.userId == IDuser).ToList();
         return View();
-
+    }
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
 
